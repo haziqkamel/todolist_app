@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todolist_app/login_page.dart';
+import 'package:todolist_app/my_home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.yellow,
       ),
       home: const LoginPage(),
+      routes: {
+        'homepage': (context) => const MyHomePage(),
+      },
     );
   }
 }

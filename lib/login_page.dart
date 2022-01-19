@@ -93,6 +93,7 @@ class _LoginPageState extends State<LoginPage> {
       } else {
         usernameController.clear();
         passwordController.clear();
+        Navigator.popAndPushNamed(context, 'homepage');
         print('Successful!');
       }
     } catch (error) {
