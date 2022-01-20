@@ -32,9 +32,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
-      child: Scaffold(
+    return MaterialApp(
+      home: Scaffold(
         appBar: AppBar(
           title: const Text('To-Do List'),
           centerTitle: true,

@@ -7,24 +7,23 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:todolist_app/main.dart';
+import 'package:todolist_app/login_page.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Empty Username and Password cannot sign in',
+      (WidgetTester tester) async {
+    //Build our app and trigger a frame for LoginPage
+    await tester.pumpWidget(const LoginPage());
+    await tester.pumpAndSettle();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    //Ask Finder to find widgetWithText Login Button --> Type = ElevatedButton Text = 'Login'
+    Finder loginButton = find.widgetWithText(ElevatedButton, 'Login');
+    await tester.press(loginButton);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Widget alertDialog = const AlertDialog(
+    //   title: Text('Error Input!'),
+    //   content: Text('Username or password cannot be empty!'),
+    // );
+    // expect(find.byWidget(alertDialog), findsNothing);
   });
 }
